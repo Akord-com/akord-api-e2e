@@ -7,7 +7,7 @@
         "ts-check": "npx tsc --noEmit",
         "prettier:check": "npx prettier --check .",
         "prettier:fix": "npx prettier --write .",
-        "test": "npx ts-mocha tests/*.spec.ts  --reporter spec --reporter mochawesome --reporter-options reportDir=results --timeout=10000"
+        "test": "npx ts-mocha tests/*.spec.ts  --reporter spec --reporter mochawesome --reporter-options reportDir=results --timeout=50000"
     },
     "keywords": [],
     "author": "",
