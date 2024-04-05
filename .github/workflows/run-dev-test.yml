@@ -25,7 +25,7 @@ jobs:
     outputs:
       outputreport: ${{ steps.testreport.outputs.report }}
       status: ${{ steps.testreport.outputs.status}}
-      env_var: ${{ steps.set_env.outputs.BASE_URL }}
+      env_var: ${{ github.event.inputs.BASE_URL }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -86,7 +86,7 @@ jobs:
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           content: |
-            Tests failed :broken_heart: [${{ needs.e2e-api-tests.outputs.env_var }}]
+            Tests failed :broken_heart: [${{ github.event.inputs.BASE_URL }}]
             ${{ needs.e2e-api-tests.outputs.outputreport }}
 
   # back-to-normal:
