@@ -9,7 +9,7 @@ describe('Files status endpoint', () => {
 
     it('should return 401 uploading file without authorization', async () => {
         await spec()
-            .get('/files')
+            .post('/files')
             .expectStatus(401);
     });
 

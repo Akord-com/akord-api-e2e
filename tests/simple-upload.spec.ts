@@ -8,9 +8,9 @@ const TX_ID_REGEXP = /[a-zA-Z0-9_-]+$/i;
 const GATEWAY_URL_REGEXP = /^https:\/\/akrd\.net\/[a-zA-Z0-9_-]+$/i;
 const ARIO_GATEAY_URL_REGEXP = /^https:\/\/arweave\.net\/[a-zA-Z0-9_-]+$/i;
 const VIEWBLOCK_URL_REGEXP = /^https:\/\/viewblock\.io\/arweave\/tx\/[a-zA-Z0-9_-]+$/i;
-const FILE_STATUS_URL_REGEXP = /^https:\/\/api\.akord\.com\/files\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/status$/i;
-const FILE_URL_REGEXP = /^https:\/\/api\.akord\.com\/files\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
-
+const ENV = process.env.BASE_URL?.split('.')[2];
+const FILE_STATUS_URL_REGEXP = new RegExp(`^https:\\/\\/api\\.akord\\.${ENV}\\/files\\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\/status$`, 'i');
+const FILE_URL_REGEXP = new RegExp(`^https:\\/\\/api\\.akord\\.${ENV}\\/files\\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`, 'i');
 const DOCS_URL = 'https://docs.akord.com/api-and-dev-tools/build/akord-api/files';
 const INFO_TEXT = "Transaction is visible on the blockchain indexers when in the \"committed\" status.";
 
@@ -53,8 +53,7 @@ const APS_response_with_tags = {
         "status": "scheduled",
         "tags": tags,
         "statusUrl": regex(FILE_STATUS_URL_REGEXP),
-        "gatewayUrl": regex(GATEWAY_URL_REGEXP),
-        "arioGatewayUrl": regex(ARIO_GATEAY_URL_REGEXP),
+        "gatewayUrls": [regex(GATEWAY_URL_REGEXP), regex(ARIO_GATEAY_URL_REGEXP)],
         "viewblockUrl": regex(VIEWBLOCK_URL_REGEXP),
         "infoUrl": DOCS_URL,
         "info": INFO_TEXT
