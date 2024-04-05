@@ -7,7 +7,7 @@
         "ts-check": "npx tsc --noEmit",
         "prettier:check": "npx prettier --check .",
         "prettier:fix": "npx prettier --write .",
-        "test": "npx ts-mocha tests/*.spec.ts  --reporter spec --reporter mochawesome --reporter-options reportDir=results --timeout=50000"
+        "test": "npx ts-mocha tests/*.spec.ts  --reporter spec --reporter mocha-ctrf-json-reporter --reporter-options ./report.xml --timeout=50000"
     },
     "keywords": [],
     "author": "",
@@ -29,5 +29,8 @@
         "prettier": "^2.8.7",
         "ts-mocha": "^10.0.0",
         "typescript": "^5.0.3"
+    },
+    "devDependencies": {
+        "mocha-ctrf-json-reporter": "^0.0.3"
     }
 }
