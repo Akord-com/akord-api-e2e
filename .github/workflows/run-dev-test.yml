@@ -42,7 +42,7 @@ jobs:
         run: yarn test
 
       - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action/macos@v2
+        uses: EnricoMi/publish-unit-test-result-action/linux@v2
         if: always()
         with:
           files: |
@@ -86,8 +86,8 @@ jobs:
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           content: |
-            Tests failed :broken_heart: [${{ needs.e2e-tests.outputs.env_var }}]
-            ${{ needs.e2e-tests.outputs.outputreport }}
+            Tests failed :broken_heart: [${{ needs.e2e-api-tests.outputs.env_var }}]
+            ${{ needs.e2e-api-tests.outputs.outputreport }}
 
   # back-to-normal:
   #   needs: e2e-api-tests
