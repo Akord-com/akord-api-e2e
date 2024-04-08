@@ -50,3 +50,5 @@ mochawesome-report
 .DS_Store
 
 ctrf
+
+report.json
