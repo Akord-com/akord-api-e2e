@@ -46,7 +46,7 @@ jobs:
         if: always()
         with:
           files: |
-            ${{ github.workspace }}/ctrf/ctrf-report.json
+            ${{ github.workspace }}/report.json
       - id: testreport
         name: Echo report
         run: |
