@@ -46,13 +46,14 @@ jobs:
         if: always()
         with:
           files: |
-            ${{ github.workspace }}/report.json
+            ${{ github.workspace }}/results/report.json
       - id: testreport
         name: Echo report
+        if: always()
         run: |
-          passed=$(jq '.results.summary.passed' ${{ github.workspace }}/ctrf/ctrf-report.json)
-          pending=$(jq '.results.summary.pending' ${{ github.workspace }}/ctrf/ctrf-report.json)
-          failed=$(jq '.results.summary.failed' ${{ github.workspace }}/ctrf/ctrf-report.json)
+          passed=$(jq '.stats.passes' ${{ github.workspace }}/results/report.json)
+          pending=$(jq '.stats.pending' ${{ github.workspace }}/results/report.json)
+          failed=$(jq '.stats.failures' ${{ github.workspace }}/results/report.json)
 
           success_emoji=":white_check_mark:"
           fail_emoji=":x:"
