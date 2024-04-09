@@ -40,6 +40,12 @@ jobs:
 
       - name: Run Mocha tests
         run: yarn test
+      
+      - name: Debug
+        run: |
+          ls ./results
+          ls ${{ github.workspace }}/results
+          cat ${{ github.workspace }}/results/report.json
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action/linux@v2
