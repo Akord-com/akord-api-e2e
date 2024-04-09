@@ -46,6 +46,8 @@ jobs:
         if: always()
         with:
           files: |
+            ./results/report.json
+            ./results/*.json
             ${{ github.workspace }}/results/report.json
       - id: testreport
         name: Echo report
