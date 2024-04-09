@@ -80,13 +80,12 @@ jobs:
           echo "$report" >> "${GITHUB_OUTPUT}"
           echo "${delimiter}" >> "${GITHUB_OUTPUT}"
 
-          if [ -z "$failed" ]; then
-              echo "Tests passed!"
+          if [ -z "$failed" ] || [ "$failed" -eq 0 ]; then
+            echo "Tests passed!"
           else
               echo "Tests failed!"
               exit 1
           fi
-
   send-discord-notification:
     needs: e2e-api-tests
     runs-on: ubuntu-latest
