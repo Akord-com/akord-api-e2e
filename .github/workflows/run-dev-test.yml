@@ -42,6 +42,7 @@ jobs:
         run: yarn test
       
       - name: Debug
+        if: always()
         run: |
           ls ./results
           ls ${{ github.workspace }}/results
