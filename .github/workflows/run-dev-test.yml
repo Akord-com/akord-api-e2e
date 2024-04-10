@@ -101,7 +101,8 @@ jobs:
           content: |
             API Tests failed :broken_heart: [${{ github.event.inputs.BASE_URL }}]
             ${{ needs.e2e-api-tests.outputs.outputreport }}
-            Report: https://github.com/Akord-com/${{ github.repository }}/runs//${{ steps.check-status.outputs.current_run_id }}
+
+            Report: https://github.com/${{ github.repository }}/runs/$GITHUB_JOB
 
   back-to-normal:
     needs: e2e-api-tests
