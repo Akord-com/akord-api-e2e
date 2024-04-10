@@ -102,7 +102,7 @@ jobs:
             API Tests failed :broken_heart: [${{ github.event.inputs.BASE_URL }}]
             ${{ needs.e2e-api-tests.outputs.outputreport }}
 
-            Report: https://github.com/${{ github.repository }}/runs/$GITHUB_JOB
+            Report: https://github.com/${{ github.repository }}/runs/${{ github.run_id }}
 
   back-to-normal:
     needs: e2e-api-tests
