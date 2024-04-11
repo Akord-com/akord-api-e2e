@@ -9,8 +9,6 @@ on:
         options:
           - https://api.akord.link
         default: https://api.akord.link
-  schedule:
-  - cron: "0 10,22 * * *"
 
 jobs:
   e2e-api-tests:
